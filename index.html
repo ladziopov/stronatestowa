@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2449e8">
+  <meta name="description" content="Fikcyjna wizytówka uczennicy technikum mechatronicznego — mini CV i projekty.">
+  <title>Lena Krawiec — mechatronika / mini CV</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f0e8;
+      --ink: #111111;
+      --blue: #2449e8;
+      --orange: #ff6b24;
+      --white: #fffdf8;
+      --line: 3px solid var(--ink);
+      --shadow: 7px 7px 0 var(--ink);
+      --sans: Arial, Helvetica, sans-serif;
+      --mono: "Courier New", Courier, monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 4px solid var(--orange);
+      outline-offset: 5px;
+    }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: var(--line);
+      font: 700 0.78rem/1.2 var(--mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 30px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 2px solid var(--ink);
+      background: var(--orange);
+      font-size: 0.9rem;
+    }
+
+    .topbar nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px 22px;
+    }
+
+    .topbar nav a {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(250px, 0.8fr);
+      gap: clamp(28px, 6vw, 84px);
+      align-items: center;
+      min-height: 520px;
+      padding: clamp(48px, 8vw, 100px) 0;
+    }
+
+    .eyebrow,
+    .section-index,
+    .card-label,
+    .tag,
+    .meta-label {
+      font: 700 0.76rem/1.3 var(--mono);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 20px;
+      padding: 8px 11px;
+      border: 2px solid var(--ink);
+      background: var(--orange);
+      box-shadow: 4px 4px 0 var(--ink);
+      transform: rotate(-1.5deg);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(4rem, 12vw, 9.6rem);
+      font-weight: 900;
+      letter-spacing: -0.095em;
+      line-height: 0.79;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--blue);
+    }
+
+    .hero-intro {
+      max-width: 540px;
+      margin: 30px 0 0;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      font-weight: 600;
+    }
+
+    .hero-intro strong {
+      text-decoration: underline;
+      text-decoration-color: var(--orange);
+      text-decoration-thickness: 5px;
+      text-underline-offset: 2px;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border: 4px solid var(--ink);
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+
+    .hero-card::before {
+      position: absolute;
+      top: -19px;
+      right: 22px;
+      width: 34px;
+      height: 34px;
+      border: 3px solid var(--ink);
+      background: var(--orange);
+      content: "";
+      transform: rotate(12deg);
+    }
+
+    .hero-card .card-label {
+      margin: 0 0 22px;
+      color: #fff;
+    }
+
+    .hero-card dl {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 13px 16px;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .hero-card dt {
+      opacity: 0.78;
+    }
+
+    .hero-card dd {
+      margin: 0;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .hero-card .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .status::before {
+      width: 9px;
+      height: 9px;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      background: #a7ff82;
+      content: "";
+    }
+
+    .section {
+      padding: 64px 0;
+      border-top: var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 32px;
+    }
+
+    .section-index {
+      display: grid;
+      width: 50px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: var(--line);
+      background: var(--orange);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    h2 {
+      margin: -8px 0 0;
+      font-size: clamp(2.3rem, 6vw, 4.6rem);
+      font-weight: 900;
+      letter-spacing: -0.07em;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .about-copy,
+    .education-card,
+    .project-card,
+    .skill-group {
+      border: var(--line);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .about-copy {
+      padding: clamp(22px, 4vw, 38px);
+      font-size: 1.13rem;
+    }
+
+    .about-copy p {
+      max-width: 66ch;
+      margin: 0;
+    }
+
+    .about-copy p + p {
+      margin-top: 17px;
+    }
+
+    .education-card {
+      padding: 25px;
+      background: var(--orange);
+    }
+
+    .education-card .meta-label {
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .education-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .education-card p {
+      margin: 0;
+    }
+
+    .education-card p + p {
+      margin-top: 9px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-group {
+      padding: 22px;
+    }
+
+    .skill-group:nth-child(2) {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .skill-group:nth-child(3) {
+      background: #e7e3da;
+    }
+
+    .skill-group h3 {
+      margin: 0 0 16px;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag {
+      padding: 7px 9px;
+      border: 2px solid currentColor;
+      font-size: 0.68rem;
+      letter-spacing: 0.02em;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+      padding: 23px;
+    }
+
+    .project-card:nth-child(2) {
+      background: var(--orange);
+      transform: translateY(18px);
+    }
+
+    .project-card:nth-child(3) {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .project-number {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 23px;
+      font: 700 0.76rem/1 var(--mono);
+    }
+
+    .project-number span:last-child {
+      padding: 6px 8px;
+      border: 2px solid currentColor;
+    }
+
+    .project-card h3 {
+      margin: 0 0 11px;
+      font-size: 1.45rem;
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+      text-transform: uppercase;
+    }
+
+    .project-card p {
+      margin: 0 0 22px;
+    }
+
+    .project-card .tag-list {
+      margin-top: auto;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: clamp(24px, 5vw, 48px);
+      border: 4px solid var(--ink);
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 9px 9px 0 var(--ink);
+    }
+
+    .contact-panel h2 {
+      max-width: 650px;
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+    }
+
+    .contact-panel p {
+      margin: 0;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 14px 18px;
+      border: 3px solid var(--ink);
+      background: var(--orange);
+      color: var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      font-weight: 900;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .contact-link:hover {
+      background: var(--white);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 26px 0 34px;
+      border-top: var(--line);
+      font: 700 0.72rem/1.5 var(--mono);
+      text-transform: uppercase;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        width: min(100% - 32px, 600px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .topbar nav {
+        gap: 7px 13px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 38px;
+        padding: 65px 0 58px;
+      }
+
+      .hero-card {
+        max-width: 460px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .project-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-card:nth-child(2) {
+        transform: none;
+      }
+
+      .project-card:last-child {
+        grid-column: 1 / -1;
+        min-height: 230px;
+      }
+
+      .contact-panel {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-shell {
+        width: calc(100% - 28px);
+      }
+
+      .topbar {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .topbar nav {
+        justify-content: flex-start;
+      }
+
+      h1 {
+        font-size: clamp(3.7rem, 19vw, 5.5rem);
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 52px 1fr;
+        gap: 10px;
+      }
+
+      .section-index {
+        width: 40px;
+      }
+
+      .skills-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card,
+      .project-card:last-child {
+        grid-column: auto;
+        min-height: 250px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes section-reveal {
+      from {
+        opacity: 0.35;
+        translate: 0 22px;
+      }
+      to {
+        opacity: 1;
+        translate: 0 0;
+      }
+    }
+
+    .topbar {
+      animation: rise-in 550ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+    }
+
+    .hero > div {
+      animation: rise-in 700ms cubic-bezier(0.2, 0.75, 0.25, 1) 80ms both;
+    }
+
+    .hero-card {
+      animation: rise-in 700ms cubic-bezier(0.2, 0.75, 0.25, 1) 180ms both;
+    }
+
+    .topbar nav a {
+      position: relative;
+      text-decoration: none;
+    }
+
+    .topbar nav a::after {
+      position: absolute;
+      right: 0;
+      bottom: -5px;
+      left: 0;
+      height: 3px;
+      background: var(--orange);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease-out;
+    }
+
+    .topbar nav a:hover::after,
+    .topbar nav a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .hero-card,
+    .about-copy,
+    .education-card,
+    .skill-group,
+    .project-card,
+    .section-index,
+    .tag,
+    .contact-link {
+      transition:
+        translate 200ms cubic-bezier(0.2, 0.75, 0.25, 1),
+        rotate 200ms ease,
+        box-shadow 200ms ease,
+        background-color 200ms ease,
+        color 200ms ease;
+    }
+
+    .hero-card::before {
+      transition: transform 220ms cubic-bezier(0.2, 0.75, 0.25, 1);
+    }
+
+    .tag {
+      cursor: default;
+    }
+
+    @media (hover: hover) {
+      .hero-card:hover {
+        translate: -4px -4px;
+        rotate: 0.7deg;
+        box-shadow: 14px 14px 0 var(--ink);
+      }
+
+      .hero-card:hover::before {
+        transform: rotate(27deg) scale(1.12);
+      }
+
+      .about-copy:hover,
+      .education-card:hover,
+      .skill-group:hover,
+      .project-card:hover {
+        translate: -4px -5px;
+        box-shadow: 12px 12px 0 var(--ink);
+      }
+
+      .about-copy:hover,
+      .project-card:hover {
+        rotate: -0.35deg;
+      }
+
+      .section-index:hover {
+        translate: -2px -2px;
+        rotate: -8deg;
+        box-shadow: 7px 7px 0 var(--ink);
+      }
+
+      .tag:hover {
+        translate: 0 -3px;
+        background-color: var(--orange);
+        color: var(--ink);
+      }
+
+      .contact-link:hover {
+        translate: -4px -4px;
+        rotate: -1deg;
+        box-shadow: 8px 8px 0 var(--ink);
+      }
+    }
+
+    .contact-link:active {
+      translate: 2px 2px;
+      rotate: 0deg;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    @supports (animation-timeline: view()) {
+      .section {
+        animation: section-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 28%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .section {
+        animation: none !important;
+        opacity: 1;
+        translate: 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#start" aria-label="Lena Krawiec — początek strony">
+        <span class="brand-mark" aria-hidden="true">LK</span>
+        <span>Portfolio / 2025—26</span>
+      </a>
+      <nav aria-label="Nawigacja główna">
+        <a href="#o-mnie">O mnie</a>
+        <a href="#umiejetnosci">Umiejętności</a>
+        <a href="#projekty">Projekty</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <main id="start">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Uczennica technikum / mechatronika</p>
+          <h1 id="hero-title">Lena <span>Krawiec</span></h1>
+          <p class="hero-intro">Lubię, kiedy <strong>mechanika spotyka się z elektroniką</strong>. Buduję, testuję i poprawiam — aż pomysł zaczyna działać.</p>
+        </div>
+        <aside class="hero-card" aria-label="Skrót profilu">
+          <p class="card-label">Karta techniczna / 01</p>
+          <dl>
+            <dt>Wiek</dt><dd>17 lat</dd>
+            <dt>Klasa</dt><dd>4 TM</dd>
+            <dt>Baza</dt><dd>Brzeziny N.</dd>
+            <dt>Status</dt><dd class="status">Uczę się / tworzę</dd>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="section" id="o-mnie" aria-labelledby="about-title">
+        <div class="section-heading">
+          <span class="section-index" aria-hidden="true">01</span>
+          <h2 id="about-title">Profil<br>i edukacja</h2>
+        </div>
+        <div class="about-grid">
+          <article class="about-copy">
+            <p>Jestem uczennicą, która najchętniej uczy się przez działanie. Interesuję się automatyką, prostymi układami sterowania i projektowaniem części, które można później naprawdę zbudować.</p>
+            <p>W pracy zespołowej lubię porządkować zadania, dokumentować kolejne próby i szukać przyczyny, gdy coś nie działa.</p>
+          </article>
+          <aside class="education-card" aria-label="Informacje o szkole">
+            <span class="meta-label">2022 — obecnie / edukacja</span>
+            <h3>Technikum Mechaniczne nr 7</h3>
+            <p>Brzeziny Nadwiślańskie</p>
+            <p><strong>Technik mechatronik</strong> · klasa IV</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="umiejetnosci" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <span class="section-index" aria-hidden="true">02</span>
+          <h2 id="skills-title">Warsztat</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-group">
+            <h3>Elektronika</h3>
+            <ul class="tag-list">
+              <li class="tag">Arduino</li>
+              <li class="tag">Czujniki</li>
+              <li class="tag">Lutowanie</li>
+              <li class="tag">Multimetr</li>
+            </ul>
+          </article>
+          <article class="skill-group">
+            <h3>Sterowanie</h3>
+            <ul class="tag-list">
+              <li class="tag">PLC — podstawy</li>
+              <li class="tag">LOGO!</li>
+              <li class="tag">Schematy</li>
+              <li class="tag">Diagnostyka</li>
+            </ul>
+          </article>
+          <article class="skill-group">
+            <h3>Projektowanie</h3>
+            <ul class="tag-list">
+              <li class="tag">Solid Edge</li>
+              <li class="tag">CAD 3D</li>
+              <li class="tag">Dokumentacja</li>
+              <li class="tag">Praca w zespole</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projekty" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <span class="section-index" aria-hidden="true">03</span>
+          <h2 id="projects-title">Projekty<br>z warsztatu</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-number"><span>Projekt / 01</span><span>2025</span></div>
+            <h3>Sortownik detali</h3>
+            <p>Prototyp, który rozpoznaje wysokość elementu czujnikiem i kieruje go do odpowiedniego pojemnika serwomechanizmem.</p>
+            <ul class="tag-list" aria-label="Technologie projektu">
+              <li class="tag">Arduino Nano</li>
+              <li class="tag">Serwo</li>
+              <li class="tag">CAD</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <div class="project-number"><span>Projekt / 02</span><span>2025</span></div>
+            <h3>Stacja temperatury</h3>
+            <p>Mały układ pomiarowy z alarmem świetlnym. Projekt obejmował schemat, montaż oraz serię testów czujnika.</p>
+            <ul class="tag-list" aria-label="Technologie projektu">
+              <li class="tag">ESP32</li>
+              <li class="tag">Czujnik</li>
+              <li class="tag">Testy</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <div class="project-number"><span>Projekt / 03</span><span>2024</span></div>
+            <h3>Panel startowy</h3>
+            <p>Ćwiczeniowy panel do sterowania silnikiem: przyciski, lampki sygnalizacyjne i czytelny opis połączeń.</p>
+            <ul class="tag-list" aria-label="Technologie projektu">
+              <li class="tag">LOGO!</li>
+              <li class="tag">Schemat</li>
+              <li class="tag">Montaż</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="kontakt" aria-labelledby="contact-title">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Masz pomysł do zbudowania?</p>
+            <h2 id="contact-title">Złapmy<br>kontakt.</h2>
+            <p>Chętnie porozmawiam o projektach szkolnych i technicznych.</p>
+          </div>
+          <a class="contact-link" href="mailto:lena.krawiec@demo.example">Napisz e-mail ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>LK / mini CV / mechatronika</p>
+      <p>Profil demonstracyjny — wszystkie dane są fikcyjne.</p>
+    </footer>
+  </div>
+</body>
+</html>
